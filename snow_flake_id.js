@@ -83,7 +83,7 @@ function getDatacenterId() {
   const hash = createHash("sha1").update(ip).digest("hex");
   return BigInt(parseInt(hash.slice(-4), 16)) % MAX_DATACENTERS;
 }
-// this is just for test purpose only in real world you sould need to store last id in a storeage .
+// this is just for test purpose only in real world you sould need to store last id in a database
 async function getLastId() {
   try {
     const data = await promisify(fs.readFile)("./lastId.txt", "utf8");
